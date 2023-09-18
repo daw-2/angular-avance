@@ -8,10 +8,6 @@
     display: flex;
 }
 
-.grid {
-    display: grid;
-}
-
 header {
     justify-content: space-between;
     align-items: center;
@@ -19,6 +15,10 @@ header {
 
 nav {
     gap: 20px;
+}
+
+.grid {
+    display: grid;
 }
 
 .grid-houses {
