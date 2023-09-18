@@ -1,0 +1,10 @@
+<div>
+    <h2>
+        {{ house.name }}
+        <span class="city">à {{ house.city }}</span>
+    </h2>
+    <p>{{ house.rental | currency }} / mois ou {{ house.price | currency }}</p>
+    <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
+
+    <img class="photo" [src]="house.photo" [alt]="house.name">
+</div>

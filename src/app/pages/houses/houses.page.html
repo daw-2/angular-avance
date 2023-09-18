@@ -1,5 +1,5 @@
 <div class="grid grid-houses">
     <div *ngFor="let house of houses">
-        {{ house.name }}
+        <app-house-card [house]="house"></app-house-card>
     </div>
 </div>

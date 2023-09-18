@@ -23,4 +23,15 @@ nav {
 
 .grid-houses {
     grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.photo {
+    max-width: 100%;
+    height: 225px;
+    object-fit: cover;
+}
+
+.city {
+    font-size: 12px;
 }
