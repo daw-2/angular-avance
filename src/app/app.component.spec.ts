@@ -17,13 +17,13 @@ describe('AppComponent', () => {
   it(`should have as title 'immobiliare'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('immobiliare');
+    expect(app.title).toEqual('Immobiliare');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('immobiliare app is running!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Immobiliare');
   });
 });
