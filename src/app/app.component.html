@@ -1,1 +1,11 @@
-<h1>{{ title }}</h1>
+<div class="container">
+    <header class="flex">
+        <h1>{{ title }}</h1>
+        <nav class="flex">
+            <a routerLink="/">Accueil</a>
+            <a routerLink="/annonces">Annonces</a>
+        </nav>
+    </header>
+    
+    <router-outlet></router-outlet>
+</div>

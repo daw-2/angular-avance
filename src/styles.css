@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    gap: 20px;
+}
+
+.grid-houses {
+    grid-template-columns: repeat(4, 1fr);
+}
