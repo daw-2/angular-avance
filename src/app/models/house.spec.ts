@@ -4,7 +4,7 @@ describe('House', () => {
   it('should create an instance', () => {
     const house = new House();
     house.name = 'Annonce';
-    expect(house).toBeTruthy();
+    expect(house).toBeInstanceOf(House);
     expect(house.name).toBe('Annonce');
   });
 });
