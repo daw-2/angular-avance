@@ -33,4 +33,9 @@ export class HouseCardComponent {
   ngDoCheck() {
     // console.log('OK');
   }
+
+  tax(price: number, rate: number = 20): number {
+    console.log('METHOD');
+    return price * (1 + rate / 100);
+  }
 }

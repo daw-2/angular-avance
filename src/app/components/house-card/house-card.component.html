@@ -4,6 +4,7 @@
         <span class="city">à {{ house.city }}</span>
     </h2>
     <p>{{ house.rental | tax | currency }} / mois ou {{ house.price | tax | currency }}</p>
+    <p>{{ tax(house.rental) | currency }} / mois</p>
     <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
 
     <img class="photo" [src]="house.photo" [alt]="house.name">
