@@ -31,6 +31,6 @@ export class HouseCardComponent {
   // ou quand il y a un changeDetection de fait que ça
   // console.log
   ngDoCheck() {
-    console.log('OK');
+    // console.log('OK');
   }
 }

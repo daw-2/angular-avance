@@ -29,7 +29,7 @@ export class HousesPage {
     // Le code hors de la zone d'Angular ne produira pas de détection de changements
     // dans le code
     this.zone.runOutsideAngular(() => {
-      setInterval(() => console.log('Hello'), 1000);
+      setTimeout(() => console.log('Hello'), 1000);
 
       window.addEventListener('scroll', (event) => {
         if (window.scrollY + window.innerHeight > document.body.scrollHeight) {
