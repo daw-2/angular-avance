@@ -13,7 +13,7 @@ export class HousingService {
     return this.http.get<House[]>('http://localhost:3000/houses');
   }
 
-  find(id: number): Observable<House | undefined> {
+  find(id: number): Observable<House> {
     return this.http.get<House>(`http://localhost:3000/houses/${id}`);
   }
 }

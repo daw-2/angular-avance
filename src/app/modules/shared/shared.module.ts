@@ -4,6 +4,7 @@ import { HouseCardComponent } from 'src/app/components/house-card/house-card.com
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaxPipe } from './tax.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TaxPipe } from './tax.pipe';
     CommonModule,
     FormsModule,
     HttpClientModule,
+    RouterModule,
   ],
   exports: [
     HouseCardComponent,

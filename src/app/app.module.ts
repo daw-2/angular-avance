@@ -10,6 +10,9 @@ import { SharedModule } from './modules/shared/shared.module';
 // Permet d'importer la langue FR dans l'application
 import localeFR from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { HousePage } from './pages/house/house.page';
+import { HouseBuyPage } from './pages/house-buy/house-buy.page';
+import { HouseRentPage } from './pages/house-rent/house-rent.page';
 registerLocaleData(localeFR);
 
 @NgModule({
@@ -17,6 +20,9 @@ registerLocaleData(localeFR);
     AppComponent,
     HomePage,
     HousesPage,
+    HousePage,
+    HouseBuyPage,
+    HouseRentPage,
     // HouseCardComponent
   ],
   imports: [

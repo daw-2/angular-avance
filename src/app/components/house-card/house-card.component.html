@@ -1,7 +1,9 @@
 <div>
     <h2 (click)="house.name = 'test'">
-        {{ house.name }}
-        <span class="city">à {{ house.city }}</span>
+        <a [routerLink]="['/annonces', house.id]">
+            {{ house.name }}
+            <span class="city">à {{ house.city }}</span>
+        </a>
     </h2>
     <p>{{ house.rental | tax | currency }} / mois ou {{ house.price | tax | currency }}</p>
     <p>{{ tax(house.rental) | currency }} / mois</p>

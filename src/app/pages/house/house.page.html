@@ -1,0 +1,8 @@
+<div *ngIf="house">
+    <p>house works!</p>
+
+    <a [routerLink]="['/annonces', house.id, 'buy']">Acheter</a>
+    <a [routerLink]="['/annonces', house.id, 'rent']">Louer</a>
+
+    <router-outlet></router-outlet>
+</div>
