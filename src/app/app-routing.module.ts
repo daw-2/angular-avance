@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'annonces/:id', component: HousePage, children: [
     { path: 'buy', component: HouseBuyPage },
     { path: 'rent', component: HouseRentPage },
-  ] },
+  ], canActivateChild: [guard] },
   { path: 'panier', loadChildren: () => import('./modules/cart/cart.module').then(m => m.CartModule) }
 ];
 
