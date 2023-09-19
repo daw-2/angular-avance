@@ -5,7 +5,8 @@ import { HousesPage } from './pages/houses/houses.page';
 
 const routes: Routes = [
   { path: '', component: HomePage },
-  { path: 'annonces', component: HousesPage }
+  { path: 'annonces', component: HousesPage },
+  { path: 'panier', loadChildren: () => import('./modules/cart/cart.module').then(m => m.CartModule) }
 ];
 
 @NgModule({
