@@ -35,3 +35,12 @@ nav {
 .city {
     font-size: 12px;
 }
+
+.grid-detail {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.grid-detail .photo {
+    height: auto;
+}

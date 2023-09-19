@@ -1,8 +1,18 @@
 <div *ngIf="house">
-    <p>house works!</p>
-
-    <a [routerLink]="['/annonces', house.id, 'buy']">Acheter</a>
-    <a [routerLink]="['/annonces', house.id, 'rent']">Louer</a>
-
-    <router-outlet></router-outlet>
+    <a routerLink="/annonces">Retour aux annonces</a>
+    <div class="grid grid-detail">
+        <div>
+            <h2>
+                {{ house.name }}
+                <span class="city">à {{ house.city }}</span>
+            </h2>
+            <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
+            <a [routerLink]="['/annonces', house.id, 'buy']">Acheter</a>
+            <a [routerLink]="['/annonces', house.id, 'rent']">Louer</a>
+            <router-outlet></router-outlet>
+        </div>
+        <div>
+            <img class="photo" [src]="house.photo" [alt]="house.name">
+        </div>
+    </div>
 </div>
