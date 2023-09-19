@@ -5,6 +5,14 @@
             <a routerLink="/">Accueil</a>
             <a routerLink="/annonces">Annonces</a>
             <a routerLink="/panier">Panier</a>
+            <div *ngIf="!(authService.logged() | async); else notLogged">
+                <!-- @todo un input pour choisir son pseudo ? -->
+                <button (click)="authService.login('Fiorella')">Connexion</button>
+            </div>
+            <ng-template #notLogged>
+                <button (click)="authService.logout()">Déconnexion</button>
+                {{ authService.user | async | json }}
+            </ng-template>
         </nav>
     </header>
     
