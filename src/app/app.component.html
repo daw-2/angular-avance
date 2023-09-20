@@ -4,7 +4,7 @@
         <nav class="flex">
             <a routerLink="/">Accueil</a>
             <a routerLink="/annonces">Annonces</a>
-            <a routerLink="/panier">Panier</a>
+            <a routerLink="/panier">Panier ({{ cart.length }})</a>
             <div *ngIf="!(authService.logged() | async); else notLogged">
                 <!-- @todo un input pour choisir son pseudo ? -->
                 <button (click)="authService.login('Fiorella')">Connexion</button>

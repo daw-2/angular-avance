@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { House } from 'src/app/models/house';
+import { add } from 'src/app/stores/cart.reducer';
 
 @Component({
   selector: 'app-house-card',
@@ -9,6 +11,12 @@ import { House } from 'src/app/models/house';
 })
 export class HouseCardComponent {
   @Input() house!: House;
+
+  constructor(private store: Store) {}
+
+  rent(): void {
+    this.store.dispatch(add(this.house));
+  }
 
   // Fonction abusée pour pouvoir tester la différence
   // sur le changeDetection avec un calcul de Fibonacci
