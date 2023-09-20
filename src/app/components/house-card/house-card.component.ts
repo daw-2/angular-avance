@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { House } from 'src/app/models/house';
-import { add } from 'src/app/stores/cart.reducer';
+import { AppState, add, has } from 'src/app/stores/cart.reducer';
 
 @Component({
   selector: 'app-house-card',
@@ -11,8 +12,13 @@ import { add } from 'src/app/stores/cart.reducer';
 })
 export class HouseCardComponent {
   @Input() house!: House;
+  isInCart!: Observable<boolean>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store<AppState>) {}
+
+  ngOnInit() {
+    this.isInCart = this.store.select(has(this.house.id));
+  }
 
   rent(): void {
     this.store.dispatch(add(this.house));

@@ -12,5 +12,5 @@
     <img class="photo" [src]="house.photo" [alt]="house.name">
 
     <p>{{ random() }}</p>
-    <button (click)="rent()">Louer</button>
+    <button (click)="rent()" *ngIf="!(isInCart | async)">Louer</button>
 </div>
