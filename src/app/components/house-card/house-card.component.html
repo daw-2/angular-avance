@@ -1,5 +1,35 @@
 <div>
-    <h2 (click)="house.name = 'test'">
+    <dsfr-card
+        [heading]="house.name"
+        [detail]="'à '+house.city"
+        [routerLink]="'/annonces/'+house.id.toString()"
+        [hasFooter]="true"
+        [imagePath]="house.photo"
+    >
+        <ng-container footer>
+            <p>{{ house.rental | tax | currency }} / mois ou {{ house.price | tax | currency }}</p>
+            <p>{{ tax(house.rental) | currency }} / mois</p>
+            <p>{{ house.rooms }} pièces {{ house.wifi ? 'avec' : 'sans' }} WiFi</p>
+
+            <p>{{ random() }}</p>
+            <div *ngIf="!(isInCart | async); else removeBtn">
+                <dsfr-buttons-group inline="always">
+                    <dsfr-button label="Louer" (click)="$event.stopPropagation(); rent()"></dsfr-button>
+                    <dsfr-button label="Acheter" (click)="$event.stopPropagation(); buy()"></dsfr-button>
+                </dsfr-buttons-group>
+            </div>
+            <ng-template #removeBtn>
+                <dsfr-button *ngIf="!alert" label="Supprimer" [variant]="'secondary'" icon="fr-icon-delete-bin-fill" (click)="$event.stopPropagation(); remove()"></dsfr-button>
+                <dsfr-alert size="SM" severity="success"
+                    [heading]="alert"
+                    [closable]="true"
+                    *ngIf="alert"
+                ></dsfr-alert>
+            </ng-template>
+        </ng-container>
+    </dsfr-card>
+
+    <!-- <h2 (click)="house.name = 'test'">
         <a [routerLink]="['/annonces', house.id]">
             {{ house.name }}
             <span class="city">à {{ house.city }}</span>
@@ -26,5 +56,5 @@
             [closable]="true"
             *ngIf="alert"
         ></dsfr-alert>
-    </ng-template>
+    </ng-template> -->
 </div>

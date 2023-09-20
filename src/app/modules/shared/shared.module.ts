@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaxPipe } from './tax.pipe';
 import { RouterModule } from '@angular/router';
-import { DsfrAlertModule, DsfrButtonModule, DsfrButtonsGroupModule } from '@edugouvfr/ngx-dsfr';
+import { DsfrAlertModule, DsfrButtonModule, DsfrButtonsGroupModule, DsfrCardModule } from '@edugouvfr/ngx-dsfr';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { DsfrAlertModule, DsfrButtonModule, DsfrButtonsGroupModule } from '@edug
     DsfrButtonModule,
     DsfrButtonsGroupModule,
     DsfrAlertModule,
+    DsfrCardModule,
   ],
   exports: [
     HouseCardComponent,
@@ -30,6 +31,7 @@ import { DsfrAlertModule, DsfrButtonModule, DsfrButtonsGroupModule } from '@edug
     DsfrButtonModule,
     DsfrButtonsGroupModule,
     DsfrAlertModule,
+    DsfrCardModule,
   ],
 })
 export class SharedModule { }
