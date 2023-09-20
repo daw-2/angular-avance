@@ -4,6 +4,8 @@ import { HomePage } from './home.page';
 import { HouseCardComponent } from 'src/app/components/house-card/house-card.component';
 import { TaxPipe } from 'src/app/modules/shared/tax.pipe';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from 'src/app/stores/cart.reducer';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -12,7 +14,7 @@ describe('HomePage', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [HomePage, HouseCardComponent, TaxPipe],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, StoreModule.forRoot({ cart: cartReducer })],
     });
     fixture = TestBed.createComponent(HomePage);
     component = fixture.componentInstance;

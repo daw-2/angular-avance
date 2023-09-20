@@ -6,6 +6,8 @@ import { FakeHousingService } from 'src/app/services/fake-housing.service';
 import { HouseCardComponent } from 'src/app/components/house-card/house-card.component';
 import { TaxPipe } from 'src/app/modules/shared/tax.pipe';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from 'src/app/stores/cart.reducer';
 
 describe('HousesPage', () => {
   let component: HousesPage;
@@ -14,7 +16,7 @@ describe('HousesPage', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [HousesPage, HouseCardComponent, TaxPipe],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, StoreModule.forRoot({ cart: cartReducer })],
       providers: [{ provide: HousingService, useExisting: FakeHousingService }]
     });
     fixture = TestBed.createComponent(HousesPage);
