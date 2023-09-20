@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HouseCardComponent } from './house-card.component';
 import { FakeHousingService } from 'src/app/services/fake-housing.service';
 import { TaxPipe } from 'src/app/modules/shared/tax.pipe';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HouseCardComponent', () => {
   let component: HouseCardComponent;
@@ -10,7 +11,8 @@ describe('HouseCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HouseCardComponent, TaxPipe]
+      declarations: [HouseCardComponent, TaxPipe],
+      imports: [RouterTestingModule],
     });
     fixture = TestBed.createComponent(HouseCardComponent);
     component = fixture.componentInstance;
