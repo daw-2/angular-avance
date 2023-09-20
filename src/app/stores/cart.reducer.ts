@@ -7,6 +7,7 @@ export interface AppState {
 
 // Modifier le state
 export const add = createAction('[Cart] Add', props<House>());
+export const remove = createAction('[Cart] Delete', props<{ id: number }>());
 
 // Filtrer le state
 export const has = (id: number) => createSelector(
@@ -25,4 +26,5 @@ export const cartReducer = createReducer(
 
     return [ ...state, house ];
   }),
+  on(remove, (state, { id }) => state.filter(house => house.id !== id))
 );

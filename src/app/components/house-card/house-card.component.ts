@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { House } from 'src/app/models/house';
-import { AppState, add, has } from 'src/app/stores/cart.reducer';
+import { AppState, add, has, remove } from 'src/app/stores/cart.reducer';
 
 @Component({
   selector: 'app-house-card',
@@ -22,6 +22,10 @@ export class HouseCardComponent {
 
   rent(): void {
     this.store.dispatch(add(this.house));
+  }
+
+  remove(): void {
+    this.store.dispatch(remove({ id: this.house.id }));
   }
 
   // Fonction abusée pour pouvoir tester la différence

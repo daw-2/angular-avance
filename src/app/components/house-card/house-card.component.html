@@ -12,5 +12,8 @@
     <img class="photo" [src]="house.photo" [alt]="house.name">
 
     <p>{{ random() }}</p>
-    <button (click)="rent()" *ngIf="!(isInCart | async)">Louer</button>
+    <button (click)="rent()" *ngIf="!(isInCart | async); else removeBtn">Louer</button>
+    <ng-template #removeBtn>
+        <button (click)="remove()">Supprimer</button>
+    </ng-template>
 </div>
