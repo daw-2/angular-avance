@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { House } from 'src/app/models/house';
@@ -13,8 +13,12 @@ import { AppState, add, has, remove } from 'src/app/stores/cart.reducer';
 export class HouseCardComponent {
   @Input() house!: House;
   isInCart!: Observable<boolean>;
+  alert: string = '';
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private changeDetector: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.isInCart = this.store.select(has(this.house.id));
@@ -22,10 +26,20 @@ export class HouseCardComponent {
 
   rent(): void {
     this.store.dispatch(add({ house: this.house, mode: 'rent' }));
+    this.alert = 'Merci pour la location';
+    setTimeout(() => {
+      this.alert = '';
+      this.changeDetector.markForCheck(); // Trigger la change detection
+    }, 3000);
   }
 
   buy(): void {
     this.store.dispatch(add({ house: this.house, mode: 'buy' }));
+    this.alert = `Merci pour l'achat`;
+    setTimeout(() => {
+      this.alert = '';
+      this.changeDetector.markForCheck();
+    }, 3000);
   }
 
   remove(): void {

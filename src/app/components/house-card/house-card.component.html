@@ -13,10 +13,18 @@
 
     <p>{{ random() }}</p>
     <div *ngIf="!(isInCart | async); else removeBtn">
-        <button (click)="rent()">Louer</button>
-        <button (click)="buy()">Acheter</button>
+        <dsfr-buttons-group inline="always">
+            <dsfr-button label="Louer" (click)="rent()"></dsfr-button>
+            <dsfr-button label="Acheter" (click)="buy()"></dsfr-button>
+        </dsfr-buttons-group>
     </div>
     <ng-template #removeBtn>
-        <button (click)="remove()">Supprimer</button>
+        <dsfr-button label="Supprimer" [variant]="'secondary'" icon="fr-icon-delete-bin-fill" (click)="remove()"></dsfr-button>
+        <br><br>
+        <dsfr-alert size="SM" severity="success"
+            [heading]="alert"
+            [closable]="true"
+            *ngIf="alert"
+        ></dsfr-alert>
     </ng-template>
 </div>

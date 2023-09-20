@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaxPipe } from './tax.pipe';
 import { RouterModule } from '@angular/router';
+import { DsfrAlertModule, DsfrButtonModule, DsfrButtonsGroupModule } from '@edugouvfr/ngx-dsfr';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,19 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     RouterModule,
+    DsfrButtonModule,
+    DsfrButtonsGroupModule,
+    DsfrAlertModule,
   ],
   exports: [
     HouseCardComponent,
     FormsModule,
     HttpClientModule,
     TaxPipe,
-    CommonModule
+    CommonModule,
+    DsfrButtonModule,
+    DsfrButtonsGroupModule,
+    DsfrAlertModule,
   ],
 })
 export class SharedModule { }
