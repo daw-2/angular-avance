@@ -21,7 +21,11 @@ export class HouseCardComponent {
   }
 
   rent(): void {
-    this.store.dispatch(add(this.house));
+    this.store.dispatch(add({ house: this.house, mode: 'rent' }));
+  }
+
+  buy(): void {
+    this.store.dispatch(add({ house: this.house, mode: 'buy' }));
   }
 
   remove(): void {
