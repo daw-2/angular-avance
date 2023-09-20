@@ -5,9 +5,14 @@ export interface AppState {
   cart: HouseItem[],
 }
 
-interface HouseItem {
+type Mode = 'rent' | 'buy';
+// enum Mode {
+//   Rent = 'rent',
+//   Buy = 'buy'
+// }
+export interface HouseItem {
   house: House,
-  mode: 'rent' | 'buy',
+  mode: Mode,
 }
 
 // Modifier le state
@@ -20,6 +25,12 @@ export const has = (id: number) => createSelector(
   (cart) => cart.find(houseItem => houseItem.house.id === id) !== undefined
 );
 
+export const selectMode = (mode: Mode) => createSelector(
+  (state: AppState) => state.cart,
+  (cart) => cart.filter(houseItem => houseItem.mode === mode)
+    .map(houseItem => houseItem.house)
+);
+
 const initialState: HouseItem[] = [];
 
 // Gestion du state
@@ -27,7 +38,7 @@ export const cartReducer = createReducer(
   initialState,
   on(add, (state, houseItem) => {
     // const copy = [ ...state ];
-    // copy.push(house);
+    // copy.push(houseItem);
 
     return [ ...state, houseItem ];
   }),

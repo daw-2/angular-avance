@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     TaxPipe,
+    CommonModule
   ],
 })
 export class SharedModule { }

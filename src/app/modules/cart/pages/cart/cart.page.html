@@ -1,1 +1,5 @@
-<p>{{ 10 | tax }}</p>
+<div class="grid grid-houses">
+    <div *ngFor="let house of rents">
+        <app-house-card [house]="house"></app-house-card>
+    </div>
+</div>
