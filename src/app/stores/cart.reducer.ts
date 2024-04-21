@@ -5,7 +5,7 @@ export interface AppState {
   cart: HouseItem[],
 }
 
-type Mode = 'rent' | 'buy';
+export type Mode = 'rent' | 'buy';
 // enum Mode {
 //   Rent = 'rent',
 //   Buy = 'buy'

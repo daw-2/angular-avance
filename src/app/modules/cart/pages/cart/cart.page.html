@@ -1,3 +1,11 @@
+<div class="fr-select-group">
+  <select class="fr-select" [(ngModel)]="choose">
+    <option value="" selected disabled hidden>Sélectionner une option</option>
+    <option value="rent">Louer</option>
+    <option value="buy">Acheter</option>
+  </select>
+</div>
+
 <div class="grid grid-houses">
     <div *ngFor="let house of rents">
         <app-house-card [house]="house"></app-house-card>
