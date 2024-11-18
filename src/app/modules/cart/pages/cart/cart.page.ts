@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject, switchMap } from 'rxjs';
 import { House } from 'src/app/models/house';
 import { AppState, Mode, selectMode } from 'src/app/stores/cart.reducer';
 
@@ -11,8 +12,11 @@ import { AppState, Mode, selectMode } from 'src/app/stores/cart.reducer';
 export class CartPage {
   rents: House[] = [];
   choose: Mode = 'rent';
+  choose$ = new BehaviorSubject<Mode>('rent');
 
   constructor(private store: Store<AppState>) {
-    this.store.select(selectMode(this.choose)).subscribe(items => this.rents = items);
+    this.choose$.pipe(
+      switchMap(choose => this.store.select(selectMode(choose)))
+    ).subscribe(items => this.rents = items);
   }
 }
